@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'components/expanded_container.dart';
+import 'components/header.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -10,10 +13,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Column(children: [
-          Text('Adepitan Oluwatosin'),
-      ],)
+    return Scaffold(
+      body: Column(
+        children: const [
+          Header(),
+          SizedBox(
+            height: 40,
+          ),
+          Expanded(
+            child: ExpandedContainer(),
+          ),
+        ],
+      ),
     );
   }
 }

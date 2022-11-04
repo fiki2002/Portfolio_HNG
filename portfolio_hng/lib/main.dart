@@ -16,14 +16,11 @@ class HNGApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Portfolio',
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       darkTheme: AppColors.darkTheme,
       home: const SplashScreen(),
-      theme: ThemeData(
-        textTheme: GoogleFonts.dmMonoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
+      theme: AppColors.lightTheme,
     );
   }
 }
