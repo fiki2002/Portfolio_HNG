@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../theme/app_images.dart';
 import '../about_me.dart';
@@ -132,21 +133,33 @@ class ExpandedContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              buildIcons(
-                url: AppImages.twitter,
-                context: context,
+              InkWell(
+                onTap: launchURL1,
+                child: buildIcons(
+                  url: AppImages.twitter,
+                  context: context,
+                ),
               ),
-              buildIcons(
-                url: AppImages.github,
-                context: context,
+              InkWell(
+                onTap: launchURL,
+                child: buildIcons(
+                  url: AppImages.github,
+                  context: context,
+                ),
               ),
-              buildIcons(
-                url: AppImages.linkedIn,
-                context: context,
+              InkWell(
+                onTap: launchURL2,
+                child: buildIcons(
+                  url: AppImages.linkedIn,
+                  context: context,
+                ),
               ),
-              buildIcons(
-                url: AppImages.whatsapp,
-                context: context,
+              InkWell(
+                onTap: launchURL3,
+                child: buildIcons(
+                  url: AppImages.whatsapp,
+                  context: context,
+                ),
               ),
             ],
           )
@@ -166,5 +179,30 @@ class ExpandedContainer extends StatelessWidget {
         color: Colors.blueGrey,
       ),
     );
+  }
+
+  Future<void> launchURL() async {
+    final Uri url = Uri.parse('https://github.com/fiki2002');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+  Future<void> launchURL1() async {
+    final Uri url = Uri.parse('https://twitter.com/tosinSpace');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+  Future<void> launchURL2() async {
+    final Uri url = Uri.parse('https://www.linkedin.com/in/adepitan-oluwatosin-33b2a7213');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+  Future<void> launchURL3() async {
+    final Uri url = Uri.parse('tel:+2347019526280');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
   }
 }

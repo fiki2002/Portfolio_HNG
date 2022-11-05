@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactMe extends StatelessWidget {
   const ContactMe({super.key});
@@ -61,31 +62,53 @@ class ContactMe extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Github: @fiki2002',
-                  style: GoogleFonts.dmMono(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
+                InkWell(
+                  onTap: launchURL,
+                  child: Text(
+                    'Github: @fiki2002',
+                    style: GoogleFonts.dmMono(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Twitter: @tosinSpace',
-                  style: GoogleFonts.dmMono(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
+                InkWell(
+                  onTap: launchURL1,
+                  child: Text(
+                    'Twitter: @tosinSpace',
+                    style: GoogleFonts.dmMono(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'LinkedIn: Adepitan Oluwatosin',
-                  style: GoogleFonts.dmMono(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
+                InkWell(
+                  onTap: launchURL2,
+                  child: Text(
+                    'LinkedIn: Adepitan Oluwatosin',
+                    style: GoogleFonts.dmMono(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                  onTap: launchURL3,
+                  child: Text(
+                    'Mail me: You\'re always welcome',
+                    style: GoogleFonts.dmMono(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ],
@@ -94,5 +117,35 @@ class ContactMe extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> launchURL() async {
+    final Uri url = Uri.parse('https://github.com/fiki2002');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+
+  Future<void> launchURL1() async {
+    final Uri url = Uri.parse('https://twitter.com/tosinSpace');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+
+  Future<void> launchURL2() async {
+    final Uri url =
+        Uri.parse('https://www.linkedin.com/in/adepitan-oluwatosin-33b2a7213');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
+  }
+
+  Future<void> launchURL3() async {
+    final Uri url = Uri.parse(
+        'mailto:adepitanoluwatosin202@gmail.com?subject=News&body=New%20plugin');
+    if (!await launchUrl(url)) {
+      throw 'Could not lauch $url';
+    }
   }
 }
