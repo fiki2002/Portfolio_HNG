@@ -21,8 +21,10 @@ This app holds the following:
 - Cross platform
 
 ## Description of codebase
-   The codebase is written in dart using Flutter, The main Project files are contained in the lib folder which is sub-divided into:
-      -
+   The codebase is written in dart using Flutter,
+   The main Project files are contained in the lib folder which is sub-divided into:
+      -theme: Here the app's theming necessities are kept. 
+              They include: colors,
 
 ## Screenshots📷
 
