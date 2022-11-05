@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme/app_images.dart';
 import '../about_me.dart';
+import '../contact_me.dart';
 import '../know_my_work.dart';
 import 'container.dart';
 
@@ -71,13 +72,23 @@ class ExpandedContainer extends StatelessWidget {
                   color: const Color(0xff830FC9).withOpacity(0.4),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text(
-                  'Contact me',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.dmMono(
-                    color: const Color(0xffEAEAEA),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ContactMe(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Contact me',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.dmMono(
+                      color: const Color(0xffEAEAEA),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               )
@@ -94,7 +105,7 @@ class ExpandedContainer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  KnowMyWork(),
+                      builder: (context) => KnowMyWork(),
                     ),
                   );
                 },
