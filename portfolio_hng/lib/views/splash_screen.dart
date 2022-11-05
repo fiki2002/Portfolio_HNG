@@ -13,10 +13,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late Timer _timer;
   @override
   void initState() {
     super.initState();
-    Timer(
+    _timer = Timer(
       const Duration(seconds: 3),
       () => Navigator.pushReplacement(
         context,
@@ -25,6 +26,12 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_hng/views/components/my_work_container.dart';
 
@@ -37,60 +38,61 @@ class KnowMyWork extends StatelessWidget {
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 24,
-              top: 40,
-            ),
-            child: GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: const Icon(
-                CupertinoIcons.back,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 24.w,
+                top: 35.h,
+              ),
+              child: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(
+                  CupertinoIcons.back,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24,
+            SizedBox(
+              height: 24.w,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'My Work',
-                  style: GoogleFonts.dmMono(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 24.w,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'My Work',
+                    style: GoogleFonts.dmMono(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: h * 0.8,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    itemBuilder: (_, index) {
-                      return MyWorkContainer(
-                        text: _myWorkContainer[index].text,
-                        note: _myWorkContainer[index].note,
-                        url1: _myWorkContainer[index].url1,
-                      );
-                    },
-                    separatorBuilder: (__, _) => const SizedBox(height: 10),
-                    itemCount: _myWorkContainer.length,
+                  SizedBox(
+                    height: 10.w,
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
+                  SizedBox(
+                    height: h * 0.79,
+                    child: ListView.separated(
+                      itemBuilder: (_, index) {
+                        return MyWorkContainer(
+                          text: _myWorkContainer[index].text,
+                          note: _myWorkContainer[index].note,
+                          url1: _myWorkContainer[index].url1,
+                        );
+                      },
+                      separatorBuilder: (__, _) => const SizedBox(height: 10),
+                      itemCount: _myWorkContainer.length,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

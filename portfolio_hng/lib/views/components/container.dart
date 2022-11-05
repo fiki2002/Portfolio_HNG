@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,9 +20,9 @@ class BuildContainer extends StatelessWidget {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        padding: const EdgeInsets.all(15),
-        height: 147,
-        width: 156,
+        padding: EdgeInsets.all(15.w),
+        height: 120.w,
+        width: 156.w,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(8),

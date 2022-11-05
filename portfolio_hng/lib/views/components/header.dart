@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme/app_images.dart';
@@ -21,38 +22,37 @@ class Header extends StatelessWidget {
             'Adepitan Oluwatosin',
             style: GoogleFonts.dmMono(
               fontWeight: FontWeight.w500,
-              fontSize: 24,
+              fontSize: 24.sp,
             ),
           ),
           Text(
             'Mobile developer',
             style: GoogleFonts.dmMono(
               fontWeight: FontWeight.w400,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
           ),
           Text(
             'Flutter',
             style: GoogleFonts.dmMono(
               fontWeight: FontWeight.w400,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 20.w,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Expanded(child: SizedBox()),
               ClipRRect(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(30.r),
                 child: Image.asset(
                   AppImages.profileBg,
-                  width: 250,
-                  height: 250,
+                  width: 200.w,
+                  height: 200.w,
                 ),
               ),
-              const Expanded(child: SizedBox()),
             ],
           ),
         ],

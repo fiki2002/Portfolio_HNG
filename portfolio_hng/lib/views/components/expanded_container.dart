@@ -91,7 +91,7 @@ class ExpandedContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(
